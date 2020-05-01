@@ -38,8 +38,7 @@ module.exports = {
         throw new UserInputError('Errors', {errors})
       }
 
-      // TODO: make sure user doesn't already exist
-
+      // make sure user doesn't already exist
       const user = await User.findOne({ username })
       if(user){
         throw new UserInputError('Username is taken',{
@@ -58,10 +57,12 @@ module.exports = {
         createdAt: new Date().toISOString(),
       })
 
+      // save mongoose schema to DB
       const res = await newUser.save()
 
       const token = generateToken(res)
 
+      // User
       return {
         ...res._doc,
         id: res._id,
@@ -78,9 +79,7 @@ module.exports = {
         throw new UserInputError('Errors', {errors})
       }
 
-
       const user = await User.findOne({ username })
-
       if( !user){
         errors.general = 'User not found'
         throw new UserInputError('Wrong credentials', {errors})

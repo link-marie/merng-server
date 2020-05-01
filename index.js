@@ -15,6 +15,9 @@ const server = new ApolloServer({
   context: ({ req }) => ( {req, pubsub} ),
 })
 
+/**
+ * Promisによる同期処理
+ */
 mongoose.connect( MONGODB, { 
   useNewUrlParser: true,
   useUnifiedTopology: true,

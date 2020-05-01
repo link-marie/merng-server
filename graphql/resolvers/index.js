@@ -1,3 +1,6 @@
+/**
+ * 各処理の resolverを展開するためのファイル
+ */
 const postsResolvers = require('./posts')
 const usersResolvers = require('./users')
 const commentsResolvers = require('./comments')

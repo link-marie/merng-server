@@ -5,7 +5,6 @@ const checkAuth = require('../../util/check-auth')
 
 module.exports = {
   Query: {
-    sayHi: () => 'Hello World!',
     async getPosts(){
       try {
        const posts = await Post.find().sort( {createdAt: -1})
